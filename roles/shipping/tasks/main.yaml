@@ -1,0 +1,37 @@
+- name:  app Setup
+  include_role: 
+    name: common
+    tasks_from: App-Setup
+
+- name: Maven app Setup
+  include_role:
+    name: common
+    tasks_from: Maven-Setup
+  
+- name: shipping service Setup
+  include_role:
+    name: common 
+    tasks_from: Systemd-Setup.yaml
+
+- name : install mysql client
+  ansible.builtin.package:
+    name: mysql
+    state: present
+
+- name: loading the data into mysql
+  community.mysql.mysql_db:
+    name: all
+    login_user: root
+    login_password: "{{ MYSQL_ROOT_PASSWORD }}"
+    login_host: "{{ MYSQL_HOST }}"
+    state: import
+    target: "{{ item }}"
+  loop:
+  - /app/db/schema.sql
+  - /app/db/app-user.sql
+  - /app/db/master-data.sql
+
+- name: restart shipping
+  ansible.builtin.service:
+    name: shipping
+    state: restarted

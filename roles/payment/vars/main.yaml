@@ -1,0 +1,3 @@
+CART_HOST: cart.backend-{{ env }}.gonela.site
+USER_HOST: user.backend-{{ env }}.gonela.site
+RABBITMQ_HOST: rabbitmq-{{ env }}.gonela.site

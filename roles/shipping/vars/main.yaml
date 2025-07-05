@@ -1,0 +1,3 @@
+CART_HOST: cart.backend-{{ env }}.gonela.site
+MYSQL_HOST: mysql-{{ env }}.gonela.site
+MYSQL_ROOT_PASSWORD: RoboShop@1

@@ -1,0 +1,2 @@
+REDIS_HOST: redis-{{ env }}.gonela.site
+MONGODB_HOST: mongodb-{{ env }}.gonela.site

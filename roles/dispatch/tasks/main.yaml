@@ -1,0 +1,24 @@
+- name : app setup
+  include_role:
+    name: common
+    tasks_from: App-Setup
+
+- name: Install Go Language
+  ansible.builtin.package:
+    name: golang 
+    state: present
+
+- name: Install dependencies 
+  ansible.builtin.command:  "{{ item }}"
+  loop:
+    - "go mod init dispatch"
+    - "go get"
+    - "go build"
+  args:
+    chdir: /app
+
+- name : dispatch service setup
+  include_role:
+    name : common
+    tasks_from : Systemd-Setup
+

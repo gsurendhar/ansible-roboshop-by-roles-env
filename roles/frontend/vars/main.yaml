@@ -1,0 +1,11 @@
+# CATALOGUE_HOST: catalogue.gonela.site
+# USER_HOST: user.gonela.site
+# CART_HOST: cart.gonela.site
+# SHIPPING_HOST: shipping.gonela.site
+# PAYMENT_HOST: payment.gonela.site
+
+CATALOGUE_HOST: catalogue.backend-{{ env }}.gonela.site
+USER_HOST: user.backend-{{ env }}.gonela.site
+CART_HOST: cart.backend-{{ env }}.gonela.site
+SHIPPING_HOST: shipping.backend-{{ env }}.gonela.site
+PAYMENT_HOST: payment.backend-{{ env }}.gonela.site

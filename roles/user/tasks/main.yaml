@@ -1,0 +1,15 @@
+- name: user app set
+  include_role:
+    name: common
+    tasks_from: App-Setup
+
+- name: nodejs installation
+  include_role:
+    name: common
+    tasks_from: Nodejs-Setup
+
+- name: Start the user service
+  include_role:
+    name: common
+    tasks_from: Systemd-Setup
+    
