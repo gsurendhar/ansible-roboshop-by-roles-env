@@ -1,2 +1,1 @@
-MONGODB_HOST: mongodb-dev.gonela.site
-env: dev
+MONGODB_HOST: mongodb-{{ env }}.gonela.site
